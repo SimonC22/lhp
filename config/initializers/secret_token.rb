@@ -9,6 +9,7 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
+
 require 'securerandom'
 
 def secure_token
@@ -24,4 +25,4 @@ def secure_token
   end
 end
 
-Lhp::Application.config.secret_key_base = secure_token
+Lhp::Application.config.secret_key_base = '634dbfe6dbd7e6eafa29780a6b12106eaa295d5cff457b2cda13e97a95a411c60bf90d92b8f7c3e21c5c144fb103c2a15730c3e16fff94d6090514051d8df226'
