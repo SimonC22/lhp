@@ -1,0 +1,20 @@
+<% provide(:title, 'All countries') %>
+<h1>Countries</h1>
+<p>Getting there slowly ...</p>
+
+<%= will_paginate %>
+
+<ul class="countries">
+  <%= render @countries %>
+</ul>
+
+<%= will_paginate %>
+
+<div class="center">
+  
+  <h2> Please add another country.</h2>
+
+  <%= link_to "Add Country!", addcountry_path,
+                                class: "btn btn-large btn-primary" %>
+</div>
+
