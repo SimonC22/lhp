@@ -1,0 +1,20 @@
+<% provide(:title, 'All events') %>
+<h1>Events</h1>
+<p>Getting there very slowly ...</p>
+
+<%= will_paginate %>
+
+<ul class="events">
+  <%= render @events %>
+</ul>
+
+<%= will_paginate %>
+
+<div class="center">
+  
+  <h2> Please add another event.</h2>
+
+  <%= link_to "Add Event!", addevent_path,
+                                class: "btn btn-large btn-primary" %>
+</div>
+
