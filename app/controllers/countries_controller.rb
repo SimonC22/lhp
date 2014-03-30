@@ -25,6 +25,12 @@ class CountriesController < ApplicationController
     end
   end
 
+  def destroy
+    Country.find(params[:id]).destroy
+    flash[:success] = "Country deleted."
+    redirect_to countries_url
+  end
+
   private
 
     def country_params

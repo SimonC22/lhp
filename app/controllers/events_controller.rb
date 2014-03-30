@@ -12,23 +12,29 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
-  def edit
-  end
-
   def create
     @event = Event.new(event_params)
     if @event.save
       flash[:success] = "Thanks!"
-      redirect_to root_url
+      redirect_to events_url
     else
       render 'new'
     end
   end
 
+  def destroy
+    Event.find(params[:id]).destroy
+    flash[:success] = "Event deleted."
+    redirect_to events_url
+  end
+
+  def edit
+  end
+
   private
 
     def event_params
-      params.require(:event).permit(:name, :country_is, :type, :date, :reference)
+      params.require(:event).permit(:country_id, :name, :event_type, :date, :reference)
     end
 
 end

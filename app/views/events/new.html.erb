@@ -6,17 +6,25 @@
     <%= form_for(@event) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
+      <%= f.label :country_id %>
+      <%= f.select(:country_id, Country.find(:all).collect {|u| [u.name, u.id]}, :prompt => 'Select') %>
+
       <%= f.label :name_of_event %>
       <%= f.text_field :name %>
 
-      <%= f.label :date %>
-      <%= f.date_field :date %>
-
       <%= f.label :type_of_event%>
-      <%= f.text_field :type %>
+      <%= f.text_field :event_type %>
 
-      <%= f.label :country_id %>
-      <%= f.number_field :country_id %>
+      <%= f.label :date %>
+      <%= f.date_select :date,
+        {:start_year => Time.now.year,
+        :end_year => 1500,
+        :use_short_month => true,
+        :order => [:day, :month, :year],
+        :prompt => {:day => 'Day', :month => 'Month', :year => 'Year'}},
+        {:class => 'year',
+        :id => 'event_date'}
+      %>
 
       <%= f.label :reference %>
       <%= f.text_field :reference %>
