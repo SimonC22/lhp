@@ -1,0 +1,7 @@
+<li>
+    <%= link_to evtype.name, evtype %>
+  <% if current_user.admin? %>
+    | <%= link_to "delete", evtype, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+  <% end %>
+</li>

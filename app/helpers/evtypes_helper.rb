@@ -1,0 +1,2 @@
+module EvtypesHelper
+end

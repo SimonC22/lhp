@@ -12,9 +12,6 @@ class CountriesController < ApplicationController
     @country = Country.new
   end
 
-  def edit
-  end
-
   def create
     @country = Country.new(country_params)
     if @country.save
@@ -31,10 +28,13 @@ class CountriesController < ApplicationController
     redirect_to countries_url
   end
 
+  def edit
+  end
+
   private
 
     def country_params
-      params.require(:country).permit(:name)
+      params.require(:country).permit(:name, :event_id)
     end
 
 end

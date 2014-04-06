@@ -1,0 +1,19 @@
+<% provide(:title, 'All event types') %>
+<h1>Event Types</h1>
+<p>Getting there slowly ...</p>
+
+<%= will_paginate %>
+
+<ul class="evtypes">
+  <%= render @evtypes %>
+</ul>
+
+<%= will_paginate %>
+
+<div class="center">
+  
+  <h2> Please add another type of event.</h2>
+
+  <%= link_to "Add Event Types!", addevtype_path,
+                                class: "btn btn-large btn-primary" %>
+</div>
