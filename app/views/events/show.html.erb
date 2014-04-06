@@ -16,14 +16,14 @@
       <div class="span4">
 	      <h2>
 	        <%= "Date:" %>
-	        <%= @event.date %>
+	        <%= @event.date.strftime("%-d %b %Y") %>
 	      </h2>
       </div>
 
       <div class="span4">
 	      <h2>
-	        <%= "Country:" %>
-	        <%= @event.country_id %>
+	        <%= "Reference:" %>
+	        <%= @event.reference %>
 	      </h2>
       </div>
 

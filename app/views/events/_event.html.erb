@@ -1,7 +1,9 @@
 <li>
-    <%= link_to event.name, event %>
+    <%= event.date.strftime("%Y, %-d %b") %>
+    | <%= link_to event.name, event %>
   <% if current_user.admin? %>
     | <%= link_to "delete", event, method: :delete,
                                   data: { confirm: "You sure?" } %>
   <% end %>
+
 </li>
