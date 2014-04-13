@@ -9,9 +9,6 @@
       <%= f.label :name_of_event %>
       <%= f.text_field :name %>
 
-      <%= f.label :country_id %>
-      <%= f.select(:country_id, Country.find(:all).collect {|u| [u.name, u.id]}, :prompt => 'Select') %>
-
       <%= f.label :type_of_event%>
       <%= f.select(:evtype_id, Evtype.find(:all).collect {|u| [u.name, u.id]}, :prompt => 'Select') %>
 

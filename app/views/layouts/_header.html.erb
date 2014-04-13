@@ -4,10 +4,10 @@
       <%= link_to "little history project", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Home", root_path %></li>
           <% if signed_in? %>
             <li><%= link_to "Users", users_path %></li>
             <li><%= link_to "Countries", countries_path %></li>
+            <li><%= link_to "Relationships", relationships_path %></li>
             <li><%= link_to "Events", events_path %></li>
             <li><%= link_to "Event types", evtypes_path %></li>
             <li id="fat-menu" class="dropdown">

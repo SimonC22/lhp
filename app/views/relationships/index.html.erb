@@ -1,0 +1,20 @@
+<% provide(:title, 'All relationships') %>
+<h1>Relationships</h1>
+<p>Getting there slowly ...</p>
+
+<%= will_paginate %>
+
+<ul class="relationships">
+  <%= render @relationships %>
+</ul>
+
+<%= will_paginate %>
+
+<div class="center">
+  
+  <h2> Please add another relationship.</h2>
+
+  <%= link_to "Add Relationship!", addrelationship_path,
+                                class: "btn btn-large btn-primary" %>
+</div>
+

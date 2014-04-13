@@ -1,16 +1,41 @@
 <% provide(:title, @country.name) %>
 <div class="row">
-  <aside class="span4">
+  <aside class="span8">
     <section>
-      <h1>
+      <h3>
         <%= @country.name %>
-      </h1>
-      <div class="span4">
+      </h3>
+      <div class="span8">
         <h2>
-          <%= "Start event:" %>
-          <%= @country.event_id %>
+          <% if @country.events.any? %>
+            <h2>Events (<%= @country.events.count %>)</h2>
+            <ol class="events">
+              <%= render @events %>
+            </ol>
+            <%= will_paginate @events %>
+          <% end %>
         </h2>
       </div>
+    <section>
+  </aside>
+
+  <div class="span4">
+  <h3>Add another event</h3>
+    <%= form_for(@relationship) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :country_id %>
+      <%= f.select(:country_id, Country.find(:all).collect {|u| [u.name, u.id]}, :prompt => 'Select') %>
+
+      <%= f.label :event %>
+      <%= f.select(:event_id, Event.find(:all).collect {|u| [u.name, u.id]}, :prompt => 'Select') %>
+
+      <%= f.submit "Add", class: "btn btn-large btn-primary" %>
+    <% end %>
+  <h3>Or</h3>
+    <%= link_to "Create a New Event", addevent_path,
+                                class: "btn btn-large btn-primary" %>
+  </div>
 
     </section>
   </aside>

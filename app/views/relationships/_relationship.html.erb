@@ -1,0 +1,9 @@
+<li>
+    <%= relationship.country.name %>
+    | <%= relationship.event_id %>
+  <% if current_user.admin? %>
+    | <%= link_to "delete", relationship, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+  <% end %>
+
+</li>

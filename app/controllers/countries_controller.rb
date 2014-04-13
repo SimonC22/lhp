@@ -6,6 +6,9 @@ class CountriesController < ApplicationController
 
   def show
     @country = Country.find(params[:id])
+    @events = @country.events.paginate(page: params[:page])
+    @relationships = @country.relationships.paginate(page: params[:page])
+    @relationship = Relationship.new
   end
 
   def new
@@ -34,7 +37,7 @@ class CountriesController < ApplicationController
   private
 
     def country_params
-      params.require(:country).permit(:name, :event_id)
+      params.require(:country).permit(:name)
     end
 
 end

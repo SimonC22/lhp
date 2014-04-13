@@ -1,0 +1,18 @@
+<% provide(:title, 'Add Relationship') %>
+<h1>Add Relationship</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@relationship) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :country_id %>
+      <%= f.select(:country_id, Country.find(:all).collect {|u| [u.name, u.id]}, :prompt => 'Select') %>
+
+      <%= f.label :start_event %>
+      <%= f.select(:event_id, Event.find(:all).collect {|u| [u.name, u.id]}, :prompt => 'Select') %>
+
+      <%= f.submit "Add Relationship", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

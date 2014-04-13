@@ -9,9 +9,6 @@
       <%= f.label :name %>
       <%= f.text_field :name %>
 
-      <%= f.label :start_event %>
-      <%= f.select(:event_id, Event.find(:all).collect {|u| [u.name, u.id]}, :prompt => 'Select') %>
-
       <%= f.submit "Add Country", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>

@@ -6,10 +6,12 @@ Lhp::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
+  resources :relationships
   root  'static_pages#home'
   match '/addcountry',  to: 'countries#new',    via: 'get'
   match '/addevent',  to: 'events#new',    via: 'get'
   match '/addevtype',  to: 'evtypes#new',    via: 'get'
+  match '/addrelationship',  to: 'relationships#new',    via: 'get'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
